@@ -109,7 +109,7 @@ class SocialSharePlugin:FlutterPlugin, MethodCallHandler, ActivityAware {
                 activeContext!!.startActivity(intent)
                 result.success("success")
             } else {
-                result.success("error")
+                result.success("error activity!!.packageManager.resolveActivity(intent, 0) != null")
             }
         } else if (call.method == "shareOptions") {
             //native share options
@@ -160,7 +160,7 @@ class SocialSharePlugin:FlutterPlugin, MethodCallHandler, ActivityAware {
                 val clip = ClipData.newPlainText("", content)
                 clipboard.setPrimaryClip(clip)
             } else {
-                result.success("error")
+                result.success("error content == null")
                 return
             }
             result.success("success")
@@ -176,7 +176,7 @@ class SocialSharePlugin:FlutterPlugin, MethodCallHandler, ActivityAware {
                 activity!!.startActivity(whatsappIntent)
                 result.success("success")
             } catch (ex: ActivityNotFoundException) {
-                result.success("error")
+                result.success("error ActivityNotFoundException1")
             }
         } else if (call.method == "shareSms") {
             //shares content on sms
@@ -190,7 +190,7 @@ class SocialSharePlugin:FlutterPlugin, MethodCallHandler, ActivityAware {
                 activity!!.startActivity(intent)
                 result.success("success")
             } catch (ex: ActivityNotFoundException) {
-                result.success("error")
+                result.success("error ActivityNotFoundException2")
             }
         } else if (call.method == "shareTwitter") {
             //shares content on twitter
@@ -204,7 +204,7 @@ class SocialSharePlugin:FlutterPlugin, MethodCallHandler, ActivityAware {
                 activity!!.startActivity(intent)
                 result.success("success")
             } catch (ex: ActivityNotFoundException) {
-                result.success("error")
+                result.success("error ActivityNotFoundException3")
             }
         }
         else if (call.method == "shareTelegram") {
@@ -218,7 +218,7 @@ class SocialSharePlugin:FlutterPlugin, MethodCallHandler, ActivityAware {
                 activity!!.startActivity(telegramIntent)
                 result.success("success")
             } catch (ex: ActivityNotFoundException) {
-                result.success("error")
+                result.success("error ActivityNotFoundException4")
             }
         }
         else if (call.method == "checkInstalledApps") {
